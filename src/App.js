@@ -11,6 +11,14 @@ export default class App extends Component {
     float: "right",
   };
 
+  getStyle = () => {
+    return {
+      padding: "10px",
+      borderBottom: "1px #ccc dotted",
+      textDecoration: "none",
+    };
+  };
+
   render() {
     return (
       <div className="container">
@@ -18,7 +26,7 @@ export default class App extends Component {
           <div className="title">
             <h1>할 일 목록</h1>
           </div>
-          <div>
+          <div style={this.getStyle()}>
             <input type="checkbox" defaultChecked={false} />
             공부하기
             <button style={this.btnStyle}>x</button>
