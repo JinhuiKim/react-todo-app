@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const List = React.memo(
   ({
@@ -11,7 +11,10 @@ const List = React.memo(
     snapshot,
     handleClick,
   }) => {
-    console.log("List Component");
+    // console.log("List Component");
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedTitle, setEditedTitle] = useState(title);
 
     const handleCompleteChange = (id) => {
       let newTodoData = todoData.map((data) => {
@@ -47,6 +50,12 @@ const List = React.memo(
             onClick={() => handleClick(id)}
           >
             x
+          </button>
+          <button
+            className="px-4 py-2 float-right"
+            onClick={() => setIsEditing(true)}
+          >
+            edit
           </button>
         </div>
       </div>
